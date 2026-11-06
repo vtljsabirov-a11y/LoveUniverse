@@ -1,0 +1,483 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #05050b;
+    color: white;
+    font-family: Georgia, serif;
+}
+
+/* Космическое полотно */
+
+#space {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Заголовок */
+
+.intro {
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    z-index: 2;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.eyebrow {
+    color: #b9b7d9;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 15px;
+    font-size: clamp(28px, 5vw, 45px);
+    font-weight: normal;
+    text-shadow: 0 0 25px rgba(165, 150, 255, 0.5);
+}
+
+.intro p {
+    margin-top: 12px;
+    color: #aaa9c3;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Подсказка */
+
+.hint {
+    position: fixed;
+    bottom: 8%;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+
+    color: #d6d0f5;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    animation: pulse 2.5s infinite;
+    transition: opacity 1s ease;
+}
+
+/* Затемнение по краям */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse at center,
+        transparent 35%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+
+    z-index: 1;
+}
+
+/* Финальное послание */
+
+.message {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+    text-align: center;
+
+    background: rgba(3, 3, 12, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 2s ease,
+        visibility 2s ease;
+
+    z-index: 5;
+}
+
+.message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.message-content {
+    width: 100%;
+    max-width: 760px;
+
+    transform: translateY(22px) scale(0.97);
+
+    opacity: 0;
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+.message.show .message-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.message h2 {
+    margin: 30px 0 24px;
+
+    font-size: clamp(29px, 5vw, 54px);
+    font-weight: normal;
+    line-height: 1.25;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 25px rgba(170, 150, 255, 0.2);
+}
+
+.message p {
+    color: #c8c5d9;
+
+    font-family: Arial, sans-serif;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.8;
+}
+
+/* Маленькая светящаяся звезда */
+
+.final-star {
+    margin-top: 35px;
+
+    color: #c9b5ff;
+    font-size: 25px;
+
+    text-shadow:
+        0 0 10px #a78bfa,
+        0 0 30px #a78bfa;
+
+    animation: starGlow 2.5s ease-in-out infinite;
+}
+
+/* Анимации */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes starGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+    .intro {
+        top: 6%;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .message h2 {
+        margin: 24px 0;
+    }
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #05050b;
+    color: white;
+    font-family: Georgia, serif;
+}
+
+/* Космическое полотно */
+
+#space {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Заголовок */
+
+.intro {
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    z-index: 2;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.eyebrow {
+    color: #b9b7d9;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 15px;
+    font-size: clamp(28px, 5vw, 45px);
+    font-weight: normal;
+    text-shadow: 0 0 25px rgba(165, 150, 255, 0.5);
+}
+
+.intro p {
+    margin-top: 12px;
+    color: #aaa9c3;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Подсказка */
+
+.hint {
+    position: fixed;
+    bottom: 8%;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+
+    color: #d6d0f5;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    animation: pulse 2.5s infinite;
+    transition: opacity 1s ease;
+}
+
+/* Затемнение по краям */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse at center,
+        transparent 35%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+
+    z-index: 1;
+}
+
+/* Финальное послание */
+
+.message {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+    text-align: center;
+
+    background: rgba(3, 3, 12, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 2s ease,
+        visibility 2s ease;
+
+    z-index: 5;
+}
+
+.message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.message-content {
+    width: 100%;
+    max-width: 760px;
+
+    transform: translateY(22px) scale(0.97);
+
+    opacity: 0;
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+.message.show .message-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.message h2 {
+    margin: 30px 0 24px;
+
+    font-size: clamp(29px, 5vw, 54px);
+    font-weight: normal;
+    line-height: 1.25;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 25px rgba(170, 150, 255, 0.2);
+}
+
+.message p {
+    color: #c8c5d9;
+
+    font-family: Arial, sans-serif;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.8;
+}
+
+/* Маленькая светящаяся звезда */
+
+.final-star {
+    margin-top: 35px;
+
+    color: #c9b5ff;
+    font-size: 25px;
+
+    text-shadow:
+        0 0 10px #a78bfa,
+        0 0 30px #a78bfa;
+
+    animation: starGlow 2.5s ease-in-out infinite;
+}
+
+/* Анимации */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes starGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+    .intro {
+        top: 6%;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .message h2 {
+        margin: 24px 0;
+    }
+
+/* Кнопка возвращения */
+
+.back-button {
+    margin-top: 35px;
+    padding: 14px 30px;
+
+    border: 1px solid rgba(190, 170, 255, 0.45);
+    border-radius: 40px;
+
+    background: rgba(130, 100, 255, 0.06);
+
+    color: #dcd3ff;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.back-button:hover {
+    background: rgba(150, 120, 255, 0.2);
+    border-color: #c5aaff;
+
+    box-shadow:
+        0 0 15px rgba(150, 120, 255, 0.25),
+        0 0 35px rgba(150, 120, 255, 0.12);
+
+    transform: translateY(-3px);
+}
+
+}
